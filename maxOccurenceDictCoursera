@@ -1,0 +1,19 @@
+name = input("Enter file:")
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+maxi=dict()
+for line in handle:
+    if line.startswith('From '):
+        x=line.split()
+        n=x[1]
+        maxi[n]=maxi.get(n,0)+1
+           
+maxc=0
+maxval=0
+for k,v in maxi.items():
+    if (k==0 or v>maxval):
+        maxc=k
+        maxval=v
+print(maxc,maxval)
+    
+                    
